@@ -1,4 +1,4 @@
-# 📡 Service Monitoring Timeline - Grafana HTML Graphics
+# 📡 Service Monitoring - Grafana HTML Graphics
 
 Um painel de monitoramento de serviços em tempo real, construído com o plugin **Grafana HTML Graphics**, consumindo dados do **Zabbix via MySQL**. Exibe o status de hosts (UP/DOWN), uptime e data de início estimada em uma interface de timeline clean e responsiva.
 
