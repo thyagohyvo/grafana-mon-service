@@ -1,1 +1,36 @@
+<div id="cg-root" class="cg-root" data-theme="light">
 
+  <div class="cg-header">
+    <div class="cg-header__left">
+      <div class="cg-header__title">Monitoramento de Serviços</div>
+      <div class="cg-header__sub" id="cg-sub">—</div>
+    </div>
+    <div class="cg-header__right">
+      <span class="cg-pill cg-pill--ok"   id="cg-cnt-ok"><span class="cg-pill__dot"></span>0 Online</span>
+      <span class="cg-pill cg-pill--crit" id="cg-cnt-down"><span class="cg-pill__dot"></span>0 Offline</span>
+    </div>
+  </div>
+
+  <div class="cg-toolbar">
+    <input id="cg-filter" class="cg-input" type="search" placeholder="Filtrar servidor…" />
+    <button id="cg-clear" class="cg-btn" type="button">Limpar</button>
+    <div class="cg-sort-wrap">
+      <span class="cg-sort-label">Ordenar:</span>
+      <button id="cg-sort-name"   class="cg-sort-btn cg-sort-btn--active" type="button">Nome</button>
+      <button id="cg-sort-status" class="cg-sort-btn" type="button">Status</button>
+      <button id="cg-sort-uptime" class="cg-sort-btn" type="button">Uptime</button>
+    </div>
+  </div>
+
+  <div class="cg-body">
+    <div class="cg-grid" id="cg-grid">
+      <div class="cg-empty" id="cg-empty">Aguardando dados…</div>
+    </div>
+  </div>
+
+  <div class="cg-footer">
+    <span id="cg-footer-info">Grafana HTML Graphics · Zabbix MySQL</span>
+    <span id="cg-footer-ts">—</span>
+  </div>
+
+</div>
