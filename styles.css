@@ -1,1 +1,296 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;600;700&display=swap');
 
+/* ── Variáveis dark (padrão) ─────────────────────────────────────────────── */
+.cg-root {
+  --bg:          #1a1d23;
+  --surface:     #22262e;
+  --surface2:    #292d36;
+  --surface3:    #31363f;
+  --border:      rgba(255,255,255,.07);
+  --border-card: rgba(255,255,255,.09);
+  --text:        rgba(255,255,255,.92);
+  --muted:       rgba(255,255,255,.45);
+  --mono:        rgba(255,255,255,.85);
+
+  --ok:          #22c55e;
+  --ok-bg:       rgba(34,197,94,.14);
+  --ok-border:   rgba(34,197,94,.32);
+  --ok-stripe:   #22c55e;
+  --ok-glow:     rgba(34,197,94,.08);
+
+  --crit:        #ef4444;
+  --crit-bg:     rgba(239,68,68,.14);
+  --crit-border: rgba(239,68,68,.32);
+  --crit-stripe: #ef4444;
+  --crit-glow:   rgba(239,68,68,.08);
+
+  font-family: 'IBM Plex Sans', sans-serif;
+  color: var(--text);
+  background: var(--bg);
+  height: 100%;
+  display: grid;
+  grid-template-rows: auto auto 1fr auto;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+/* ── Light theme ─────────────────────────────────────────────────────────── */
+.cg-root[data-theme="light"] {
+  --bg:          #f0f2f5;
+  --surface:     #ffffff;
+  --surface2:    #f7f8fa;
+  --surface3:    #eef0f3;
+  --border:      rgba(0,0,0,.07);
+  --border-card: rgba(0,0,0,.09);
+  --text:        #1a1e26;
+  --muted:       #6b7585;
+  --mono:        #2d3340;
+  --ok:          #16a34a;
+  --ok-bg:       rgba(22,163,74,.09);
+  --ok-border:   rgba(22,163,74,.28);
+  --ok-stripe:   #16a34a;
+  --ok-glow:     rgba(22,163,74,.05);
+  --crit:        #dc2626;
+  --crit-bg:     rgba(220,38,38,.07);
+  --crit-border: rgba(220,38,38,.26);
+  --crit-stripe: #dc2626;
+  --crit-glow:   rgba(220,38,38,.04);
+}
+
+/* ── Header ──────────────────────────────────────────────────────────────── */
+.cg-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 18px;
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  gap: 12px;
+}
+
+.cg-header__title {
+  font-size: 15px; font-weight: 700;
+  color: var(--text); letter-spacing: .2px;
+}
+
+.cg-header__sub {
+  font-size: 11px; color: var(--muted); margin-top: 3px;
+  font-family: 'IBM Plex Mono', monospace;
+}
+
+.cg-header__right { display: flex; gap: 8px; align-items: center; flex-shrink: 0; }
+
+/* pills */
+.cg-pill {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 5px 13px; border-radius: 20px;
+  font-size: 12px; font-weight: 700; letter-spacing: .3px;
+  font-family: 'IBM Plex Mono', monospace;
+  border: 1px solid transparent;
+}
+.cg-pill__dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+.cg-pill--ok   { background: var(--ok-bg);   color: var(--ok);   border-color: var(--ok-border);   }
+.cg-pill--ok   .cg-pill__dot { background: var(--ok);   }
+.cg-pill--crit { background: var(--crit-bg); color: var(--crit); border-color: var(--crit-border); }
+.cg-pill--crit .cg-pill__dot { background: var(--crit); }
+
+/* ── Toolbar ─────────────────────────────────────────────────────────────── */
+.cg-toolbar {
+  display: flex; align-items: center; gap: 8px;
+  padding: 10px 18px;
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+}
+
+.cg-input {
+  flex: 1;
+  height: 34px;
+  border: 1px solid var(--border);
+  background: var(--surface2); color: var(--text);
+  border-radius: 8px; padding: 0 12px;
+  font-size: 13px; font-family: 'IBM Plex Sans', sans-serif;
+  outline: none; transition: border-color .15s;
+}
+.cg-input:focus { border-color: var(--ok); }
+.cg-input::placeholder { color: var(--muted); }
+
+.cg-btn {
+  height: 34px; border-radius: 8px;
+  border: 1px solid var(--border);
+  background: var(--surface2); color: var(--text);
+  font-size: 13px; padding: 0 14px; cursor: pointer;
+  font-family: 'IBM Plex Sans', sans-serif;
+  transition: background .12s; flex-shrink: 0;
+}
+.cg-btn:hover { background: var(--surface3); }
+
+.cg-sort-wrap { display: flex; align-items: center; gap: 5px; flex-shrink: 0; }
+
+.cg-sort-label {
+  font-size: 11px; color: var(--muted);
+  font-family: 'IBM Plex Mono', monospace;
+}
+
+.cg-sort-btn {
+  height: 30px; border-radius: 6px;
+  border: 1px solid var(--border);
+  background: var(--surface2); color: var(--muted);
+  font-size: 12px; font-weight: 600; padding: 0 11px; cursor: pointer;
+  font-family: 'IBM Plex Sans', sans-serif;
+  transition: all .12s;
+}
+.cg-sort-btn:hover { background: var(--surface3); color: var(--text); }
+.cg-sort-btn--active {
+  background: var(--text); color: var(--bg);
+  border-color: var(--text);
+}
+
+/* ── Body scroll ─────────────────────────────────────────────────────────── */
+.cg-body {
+  overflow-y: auto;
+  padding: 14px 16px;
+  background: var(--bg);
+  scrollbar-width: thin;
+  scrollbar-color: var(--border) transparent;
+}
+
+.cg-empty {
+  padding: 40px; text-align: center;
+  color: var(--muted); font-size: 13px;
+  font-family: 'IBM Plex Mono', monospace;
+  grid-column: 1 / -1;
+}
+
+/* ── Grid ────────────────────────────────────────────────────────────────── */
+/*
+  auto-fill: o número de colunas se adapta à largura do painel.
+  minmax(200px, 1fr): cada card tem no mínimo 200px e divide o espaço igualmente.
+*/
+.cg-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 10px;
+}
+
+/* ── Card ────────────────────────────────────────────────────────────────── */
+.cg-card {
+  background: var(--surface);
+  border: 1px solid var(--border-card);
+  border-radius: 10px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: background .12s, transform .12s, box-shadow .12s;
+  cursor: default;
+  position: relative;
+}
+
+.cg-card:hover {
+  background: var(--surface2);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(0,0,0,.18);
+}
+
+/* faixa topo do card */
+.cg-card__topbar {
+  height: 3px;
+  width: 100%;
+  flex-shrink: 0;
+}
+.cg-card__topbar.up   { background: var(--ok-stripe);   }
+.cg-card__topbar.down { background: var(--crit-stripe); }
+
+/* corpo do card */
+.cg-card__body {
+  padding: 14px 14px 12px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* linha de nome */
+.cg-card__name-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 6px;
+}
+
+.cg-card__name {
+  font-size: 13px; font-weight: 700;
+  color: var(--text);
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+  flex: 1; min-width: 0;
+}
+
+/* badge de status */
+.cg-badge {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10px; font-weight: 700; letter-spacing: .8px;
+  padding: 3px 8px; border-radius: 5px;
+  border: 1px solid transparent;
+  flex-shrink: 0;
+}
+.cg-badge.up {
+  background: var(--ok-bg); color: var(--ok);
+  border-color: var(--ok-border);
+}
+.cg-badge.down {
+  background: var(--crit-bg); color: var(--crit);
+  border-color: var(--crit-border);
+}
+
+/* label "Servidor" */
+.cg-card__label {
+  font-size: 10px; color: var(--muted);
+  font-family: 'IBM Plex Mono', monospace;
+}
+
+/* separador */
+.cg-card__sep {
+  height: 1px;
+  background: var(--border);
+}
+
+/* bloco de métricas */
+.cg-card__metrics {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.cg-metric {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.cg-metric__label {
+  font-size: 9px; font-weight: 700; letter-spacing: 1px;
+  text-transform: uppercase; color: var(--muted);
+  font-family: 'IBM Plex Mono', monospace;
+}
+
+.cg-metric__val {
+  font-size: 15px; font-weight: 700;
+  color: var(--text);
+  font-family: 'IBM Plex Mono', monospace;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+
+.cg-metric__sub {
+  font-size: 11px; color: var(--muted);
+  font-family: 'IBM Plex Mono', monospace;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+
+/* ── Footer ──────────────────────────────────────────────────────────────── */
+.cg-footer {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 9px 18px;
+  background: var(--surface);
+  border-top: 1px solid var(--border);
+  font-size: 11px; color: var(--muted);
+  font-family: 'IBM Plex Mono', monospace;
+}
